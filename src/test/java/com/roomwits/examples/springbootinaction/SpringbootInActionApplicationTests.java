@@ -16,11 +16,11 @@ import junit.framework.TestCase;
 class SpringbootInActionApplicationTests {
 
 	@Autowired
-	SpringbootInActionApplication applicationController;
+	SpringbootInActionApplication controller; // 注入控制器对象
 
 	@Test
 	void testHome() {
-		TestCase.assertEquals(this.applicationController.home(), "www.roomwits.com");
+		TestCase.assertEquals(this.controller.home(), "www.roomwits.com");
 	}
 
 }
