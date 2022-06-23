@@ -1,14 +1,17 @@
 package com.roomwits.examples.springbootinaction.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 public class MessageController {
-    @RequestMapping("/")							// 映射的访问路径
-	@ResponseBody									// Restful的返回形式
+    @GetMapping("/")							// 映射的访问路径
 	public String home() {
 		return "www.roomwits.com";
 	}
+
+    @GetMapping("/echo")						// 映射的访问路径
+    public String echo(String msg) {
+        return "[Echo]:" + msg;
+    }
 }

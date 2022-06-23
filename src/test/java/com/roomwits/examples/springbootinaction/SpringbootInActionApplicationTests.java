@@ -25,4 +25,8 @@ class SpringbootInActionApplicationTests {
 		TestCase.assertEquals(this.controller.home(), "www.roomwits.com");
 	}
 
+	@Test
+	void testEcho() {
+		TestCase.assertEquals(this.controller.echo("roomwits.com"), "[Echo]:roomwits.com");
+	}
 }
