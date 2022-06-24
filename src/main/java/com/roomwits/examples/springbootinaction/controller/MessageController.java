@@ -14,11 +14,17 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import com.roomwits.examples.springbootinaction.util.MessageUtil;
+
 @RestController
 public class MessageController {
 
     @Autowired
     private MessageSource messageSource;
+
+    @Autowired
+    private MessageUtil messageUtil;
+    
 
     @GetMapping("/")
     public String home() {
@@ -51,5 +57,10 @@ public class MessageController {
         map.put("welcome.msg",
                 this.messageSource.getMessage("welcome.msg", new Object[] { "柴培熙" }, Locale.getDefault()));
         return map;
+    }
+
+    @GetMapping("/info")
+    public Object info() {
+        return messageUtil.getInfo();
     }
 }
