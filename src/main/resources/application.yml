@@ -1,0 +1,4 @@
+server:
+    port: 8283
+    servlet:
+        context-path: /springboot-in-action-demo
