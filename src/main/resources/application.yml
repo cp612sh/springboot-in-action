@@ -1,8 +1,33 @@
 spring:
     messages:
         basename: i18n/Messages
-
+    profiles: 
+        active: dev
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+    #   on-property: spring.profiles.active=dev
+server:
+    port: 8080
+---
+spring:
+  config:
+    activate:
+      on-profile: beta
 server:
     port: 8283
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+server:
+    port: 8284
+---
+
+server:
+    # port: 8283
     servlet:
         context-path: /springboot-in-action-demo
