@@ -1,4 +1,16 @@
 spring:
+    datasource:
+      type: com.alibaba.druid.pool.DruidDataSource  # 配置当前连接池的数据源类型
+      driver-class-name: com.mysql.jdbc.Driver      # 配置数据库驱动类
+      url: jdbc:mysql://localhost:3306/spring       # 配置数据库连接地址
+      username: root                                # 配置数据库用户名
+      password: root                                # 配置数据库密码
+      dbcp2:
+        min-idle: 1                                 # 最小维持连接数
+        initial-size: 1                             # 初始化连接数
+        max-total: 10                               # 最大连接数
+        max-wait-millis: 3000                       # 获取连接的最大等待时间
+    
     messages:
         basename: i18n/Messages
     profiles: 
@@ -8,7 +20,6 @@ spring:
   config:
     activate:
       on-profile: dev
-    #   on-property: spring.profiles.active=dev
 server:
     port: 8080
 ---
@@ -31,3 +42,7 @@ server:
     # port: 8283
     servlet:
         context-path: /springboot-in-action-demo
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  type-aliases-package: com.roomwits.examples.springbootinaction.vo

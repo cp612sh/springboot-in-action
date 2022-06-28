@@ -1,4 +1,4 @@
-package com.roomwits.examples.springbootinaction;
+package com.roomwits.examples.springbootinaction.service.impl;
 
 import org.springframework.stereotype.Service;
 
